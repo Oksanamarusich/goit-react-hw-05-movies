@@ -27,38 +27,25 @@ export const fetchWord = async (value)=> {
       query:'value'
     }
   });
-  console.log('fetch', data.results);
   return data.results;
 
 }
 
 
+//information about film
 
+  export const fetchMovie = async (movieId)=> {
+  const { data } = await axios.get(`movie/${movieId}`, {
+    params: {
+      api_key: API_KEY,
+      language: 'en-US'
+     
+    }
+  });
+  console.log('fetchMovie', data);
+  return data;
 
-
-  
-
-
-  //information about film
-
-  // const options = {
-  // method: 'GET',
-  // url: 'https://api.themoviedb.org/3/movie/movie_id',
-  // params: {language: 'en-US'},
-  // headers: {
-  //   accept: 'application/json',
-  //   Authorization: 'Bearer 58ad02d642bc4327ab0be53b23f95385'
-  // }
-//};
-
-// axios
-//   .request(options)
-//   .then(function (response) {
-//     console.log(response.data);
-//   })
-//   .catch(function (error) {
-//     console.error(error);
-//   });
+}
 
   //about actors
 

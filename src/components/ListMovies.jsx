@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom';
 
 export const ListMovies = ({ movies }) => {
 
@@ -8,7 +8,7 @@ export const ListMovies = ({ movies }) => {
             <ul>
                 {movies.map(movie => (
                     <li key={movie.id}>
-                        <a href=" ">{movie.title}</a></li>
+                        <Link to={`/movies/${movie.id}`}>{movie.title}</Link></li>
                 ))}
                 
             </ul>

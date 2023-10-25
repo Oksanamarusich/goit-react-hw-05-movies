@@ -22,9 +22,9 @@ export default function Movies({ handelSearch }) {
              setError(false);
            
             try {
-                const data = await fetchWord(value);
-                console.log('movies', data)
-                setMovies(data);
+                const movies = await fetchWord(value);
+                console.log('movies', movies)
+                setMovies(movies);
                 
            
             } catch (error) {
@@ -68,7 +68,7 @@ export default function Movies({ handelSearch }) {
             onSubmit={handlerSubmit}
             value={value}
              onChange={handlerChange} />
-        {/* <ListMovies movies={movies} /> */}
+         <ListMovies movies={movies} /> 
         
     </div>)
 }

@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import HomePage from '../pages/HomePage';
 import Movies from '../pages/Movies';
 import MovieDetails from '../pages/MovieDetails';
-
+import NotFoundPage from 'pages/NotFoundPage';
 export const App = () => {
   return (
     <Routes>
@@ -13,7 +13,8 @@ export const App = () => {
       <Route path="/movies/:movieId" element={<MovieDetails />}>
           <Route path="/movies/:movieId/cast" element={<MovieDetails />} />
           <Route path="/movies/:movieId/reviews" element={<MovieDetails />} />
-      </Route>
+        </Route>
+        <Route path = "*" element = {<NotFoundPage/>}/>
       </Route>
 
     </Routes>
