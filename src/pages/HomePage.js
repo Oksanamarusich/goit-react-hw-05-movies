@@ -1,6 +1,6 @@
 
 import { Loader } from 'components/Loader/Loader';
-import { ErrorMessage } from 'components/ErrorMessage.styled';
+import { ErrorMessage } from 'components/ErrorMessage';
 import { fetchTrending } from '../services/api';
 import { ListMovies } from 'components/ListMovies';
 

@@ -7,10 +7,10 @@ import {BrowserRouter} from 'react-router-dom';
 
 const theme = {
   colors: {
-    white: '#fff',
-    black: '#212121',
-    green: 'green',
-    blue: 'blue',
+    white: '#F5F1ED',
+    black: '#252323',
+    green: '#98FB98',
+    blue: '#ADD8E6',
     orange: 'orange',
     error: 'red',
   },

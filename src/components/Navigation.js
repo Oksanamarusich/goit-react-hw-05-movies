@@ -3,8 +3,14 @@ import { NavLink } from 'react-router-dom';
 
 const Link = styled(NavLink)`
   &.active {
-    color: orange;
+    color: #DC965A;
+    text-decoration:underline;
   }
+  margin-right: ${props => props.theme.spacing(4)};
+  font-size: 20px;
+  text-decoration: none;
+  color: ${props => props.theme.colors.white};
+
 `;
 
 export const Navigation = () => {
@@ -12,7 +18,7 @@ export const Navigation = () => {
         <nav>
             <Link to="/">Home</Link>
         <Link to="/movies">Movies</Link>
-        {/* <Link to ="/movies/:movieId">MovieDetails</Link> */}
+       
         </nav>
     );
 }

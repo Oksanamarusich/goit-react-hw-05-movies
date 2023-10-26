@@ -4,7 +4,7 @@ import { SearchMovies } from 'components/SearchMovies';
 import toast from 'react-hot-toast';
 import { fetchWord } from '../services/api';
 import { Loader } from 'components/Loader/Loader';
-import { ErrorMessage } from 'components/ErrorMessage.styled';
+import { ErrorMessage } from 'components/ErrorMessage';
 import { ListMovies } from 'components/ListMovies';
 
 export default function Movies() {

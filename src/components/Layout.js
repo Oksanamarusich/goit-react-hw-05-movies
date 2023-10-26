@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { Toaster } from 'react-hot-toast';
 import { Outlet } from 'react-router-dom';
- import { Navigation } from './Navigation';
+import { Navigation } from './Navigation';
+import { Header } from './Header.styled';
 
 export const Container = styled.div`
   display: flex;
@@ -10,14 +11,15 @@ export const Container = styled.div`
   padding: ${p => p.theme.spacing(4)};
   max-width: 1200px;
   margin: 0 auto;
+  background-color:  ${props => props.theme.colors.white};
 `;
 
 export const Layout = () => {
   return (
     <Container>
-      <header>
+      <Header>
         <Navigation />
-      </header>
+      </Header>
 
       <Outlet />
 

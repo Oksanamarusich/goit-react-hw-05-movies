@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { fetchMovie, fetchCast, fetchReviews } from 'services/api';
 import { CardMovie } from 'components/CardMovie.jsx';
 import { Loader } from 'components/Loader/Loader';
-import { ErrorMessage } from 'components/ErrorMessage.styled';
+import { ErrorMessage } from 'components/ErrorMessage';
 import { Cast } from 'components/Cast';
 import { Reviews } from 'components/Reviews';
 
@@ -28,7 +28,7 @@ export default function MovieDetails() {
              setError(false);
             try {
                 const movie = await fetchMovie(params.movieId);
-                
+                console.log('MOVIE', movie)
                 setMovie(movie);
             } catch (error) {
         
