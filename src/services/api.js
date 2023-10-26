@@ -42,49 +42,37 @@ export const fetchWord = async (value)=> {
      
     }
   });
-  console.log('fetchMovie', data);
+  
   return data;
 
 }
 
-  //about actors
+  // cast
 
-//   const options = {
-//   method: 'GET',
-//   url: 'https://api.themoviedb.org/3/movie/movie_id/credits',
-//   params: {language: 'en-US'},
-//   headers: {
-//     accept: 'application/json',
-//     Authorization: 'Bearer 58ad02d642bc4327ab0be53b23f95385'
-//   }
-// };
+export const fetchCast = async (movieId)=> {
+  const { data } = await axios.get(`movie/${movieId}/credits`, {
+    params: {
+      api_key: API_KEY,
+      language: 'en-US'
+     
+    }
+  });
+  console.log('fetchCast', data.cast);
+  return data.cast;
 
-// axios
-//   .request(options)
-//   .then(function (response) {
-//     console.log(response.data);
-//   })
-//   .catch(function (error) {
-//     console.error(error);
-//   });
+}
 
-  //огляд
+  // Reviews
 
-//   const options = {
-//   method: 'GET',
-//   url: 'https://api.themoviedb.org/3/movie/movie_id/reviews',
-//   params: {language: 'en-US', page: '1'},
-//   headers: {
-//     accept: 'application/json',
-//     Authorization: 'Bearer 58ad02d642bc4327ab0be53b23f95385'
-//   }
-// };
+export const fetchReviews = async (movieId)=> {
+  const { data } = await axios.get(`movie/${movieId}/reviews`, {
+    params: {
+      api_key: API_KEY,
+      language: 'en-US'
+     
+    }
+  });
+  console.log('fetchReviews', data.results);
+  return data.results;
 
-// axios
-//   .request(options)
-//   .then(function (response) {
-//     console.log(response.data);
-//   })
-//   .catch(function (error) {
-//     console.error(error);
-//   });
+}

@@ -1,7 +1,8 @@
 //import { useState, useEffect } from 'react';
 //import {ListMovies} from 'components/ListMovies'
 
-export const SearchMovies = ({onSubmit,value, onChange}) => {
+export const SearchMovies = ({ onSubmit, value, onChange }) => {
+    
    
     return (<div>
         <form onSubmit = {onSubmit}>

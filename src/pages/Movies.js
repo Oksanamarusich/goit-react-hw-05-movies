@@ -7,7 +7,7 @@ import { Loader } from 'components/Loader/Loader';
 import { ErrorMessage } from 'components/ErrorMessage.styled';
 import { ListMovies } from 'components/ListMovies';
 
-export default function Movies({ handelSearch }) {
+export default function Movies() {
     const [value, setValue] = useState('');
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -43,12 +43,13 @@ export default function Movies({ handelSearch }) {
         setValue(evt.target.value);
     }
 
-     const handlerSubmit = evt => {
-        evt.preventDefault();
+     const handlerSubmit = value => {
+        
         if (value.trim() === '') {
             return toast.success('Please enter a search word.', { position: 'top-right' });
-        }
-         setValue(evt.target.value);
+         }
+         //setSearchParams({ value });
+        // setValue(evt.target.value);
         // handelSearch(value);
          
         reset();
