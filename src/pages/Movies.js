@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
-import { SearchMovies } from 'components/SearchMovies';
+import { SearchMovies } from 'components/SearchMovies/SearchMovies';
 import toast from 'react-hot-toast';
 import { fetchWord } from '../services/api';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorMessage } from 'components/ErrorMessage';
-import { ListMovies } from 'components/ListMovies';
+import { ListMovies } from 'components/ListMovies/ListMovies';
 
 export default function Movies() {
     const [value, setValue] = useState('');

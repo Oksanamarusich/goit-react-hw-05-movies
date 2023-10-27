@@ -7,9 +7,9 @@ import { Header } from './Header.styled';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${p => p.theme.spacing(6)};
-  padding: ${p => p.theme.spacing(4)};
-  max-width: 1200px;
+  //gap: ${p => p.theme.spacing(6)};
+  //padding: ${p => p.theme.spacing(4)};
+  max-width: 100%;
   margin: 0 auto;
   background-color:  ${props => props.theme.colors.white};
 `;

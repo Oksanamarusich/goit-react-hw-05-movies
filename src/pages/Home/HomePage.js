@@ -1,8 +1,9 @@
 
 import { Loader } from 'components/Loader/Loader';
 import { ErrorMessage } from 'components/ErrorMessage';
-import { fetchTrending } from '../services/api';
-import { ListMovies } from 'components/ListMovies';
+import { fetchTrending } from '../../services/api';
+import { ListMovies } from 'components/ListMovies/ListMovies';
+import { Title } from 'pages/Home/HomePage.styled';
 
 import { useState, useEffect } from 'react';
 
@@ -38,7 +39,7 @@ export default function HomePage() {
          {error && (
           <ErrorMessage>Whoops! Error! Please reload this page!</ErrorMessage>
         )} 
-         <h1>Trending today</h1>
+         <Title>Trending today</Title>
         <ListMovies movies={movies} />
 
     </main>)

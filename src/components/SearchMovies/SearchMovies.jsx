@@ -1,20 +1,21 @@
 //import { useState, useEffect } from 'react';
 //import {ListMovies} from 'components/ListMovies'
+import {SearchContainer, SearchInput, Button} from 'components/SearchMovies/SearchMovies.styled'
 
 export const SearchMovies = ({ onSubmit, value, onChange }) => {
     
    
-    return (<div>
+    return (<SearchContainer>
         <form onSubmit = {onSubmit}>
-            <input
+            <SearchInput
              type="text"
              value={value}
-             onChange={ onChange}></input>
-        <button type = "submit">Search</button>
+             onChange={ onChange}></SearchInput>
+        <Button type = "submit">Search</Button>
      </form>
        
         
         {/* <ListMovies/> */}
         
-    </div>)
+    </SearchContainer>)
 }

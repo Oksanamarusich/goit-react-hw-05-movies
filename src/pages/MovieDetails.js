@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import { fetchMovie, fetchCast, fetchReviews } from 'services/api';
-import { CardMovie } from 'components/CardMovie.jsx';
+import { CardMovie } from 'components/CardMovie/CardMovie.jsx';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorMessage } from 'components/ErrorMessage';
 import { Cast } from 'components/Cast';
