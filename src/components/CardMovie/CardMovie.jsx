@@ -6,7 +6,7 @@ import {
     TitleMovie,
 Title} from 'components/CardMovie/CardMovie.styled'
 
-export const CardMovie = ({movie}) => {
+export const CardMovie = ({movie, cast, reviews}) => {
 //    const defaultImg = 'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700'
  return (
         <>
@@ -29,7 +29,7 @@ export const CardMovie = ({movie}) => {
                 
             <h2>Additional information</h2>
             <ul>
-                <li key = {movie.id}>
+                <li>
                          <Link to="cast">Cast</Link>
                 </li>
                     

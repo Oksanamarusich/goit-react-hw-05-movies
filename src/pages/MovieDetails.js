@@ -5,16 +5,17 @@ import { fetchMovie, fetchCast, fetchReviews } from 'services/api';
 import { CardMovie } from 'components/CardMovie/CardMovie.jsx';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorMessage } from 'components/ErrorMessage';
-import { Cast } from 'components/Cast';
-import { Reviews } from 'components/Reviews';
+// import { Cast } from 'components/Cast';
+// import { Reviews } from 'components/Reviews';
+import { Outlet } from 'react-router-dom';
 
 export default function MovieDetails() {
     const params = useParams();
     // console.log('params', params)
 
     const [movie, setMovie] = useState();
-    const [cast, setCast] = useState([]);
-    const [reviews, setReviews] = useState([]);
+    //const [cast, setCast] = useState([]);
+    //const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
@@ -42,53 +43,53 @@ export default function MovieDetails() {
         getMovie();
     }, [params.movieId]);
 
-    useEffect(() => {
-        // if (!cast.length) {
-        //     return;
-        // };
+    // useEffect(() => {
+    //      if (!params.movieId && !cast.length) {
+    //         return;
+    //     };
 
-        async function getCast() {
-            setLoading(true);
-             setError(false);
-            try {
-                const cast = await fetchCast(params.movieId, params.cast);
-                console.log('Cast', cast);
-                setCast(cast);
-            } catch (error) {
+    //     async function getCast() {
+    //         setLoading(true);
+    //          setError(false);
+    //         try {
+    //             const cast = await fetchCast(params.movieId, params.cast);
+    //             console.log('Cast', cast);
+    //             setCast(cast);
+    //         } catch (error) {
         
-                 setError(true);
+    //              setError(true);
                 
-            } finally {
+    //         } finally {
         
-                 setLoading(false);
-      }
-        };
-        getCast();
-    }, [params.movieId, params.cast]);
+    //              setLoading(false);
+    //   }
+    //     };
+    //     getCast();
+    // }, [params.movieId, params.cast]);
 
-     useEffect(() => {
-        // if (!reviews.length) {
-        //     return;
-        // };
+    //  useEffect(() => {
+    //     if (!reviews.length) {
+    //         return;
+    //     };
 
-        async function getReviews() {
-            setLoading(true);
-             setError(false);
-            try {
-                const reviews = await fetchReviews(params.movieId,params.reviews);
-                console.log('Reviews', reviews);
-                setReviews(reviews);
-            } catch (error) {
+    //     async function getReviews() {
+    //         setLoading(true);
+    //          setError(false);
+    //         try {
+    //             const reviews = await fetchReviews(params.movieId,params.reviews);
+    //             console.log('Reviews', reviews);
+    //             setReviews(reviews);
+    //         } catch (error) {
         
-                 setError(true);
+    //              setError(true);
                 
-            } finally {
+    //         } finally {
         
-                 setLoading(false);
-      }
-        };
-        getReviews()
-    }, [params.movieId, params.reviews]);
+    //              setLoading(false);
+    //   }
+    //     };
+    //     getReviews()
+    // }, [params.movieId, params.reviews]);
 
 
     
@@ -99,8 +100,9 @@ export default function MovieDetails() {
           <ErrorMessage>Whoops! Error! Please reload this page!</ErrorMessage>
         )} 
             <CardMovie movie={movie} />
-            <Cast cast={cast} />
-            <Reviews reviews = {reviews} />
+            {/* <Cast cast={cast} />
+            <Reviews reviews = {reviews} /> */}
+            <Outlet/>
             
         </div>
     )

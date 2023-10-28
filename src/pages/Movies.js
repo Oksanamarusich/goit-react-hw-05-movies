@@ -48,6 +48,7 @@ export default function Movies() {
         if (value.trim() === '') {
             return toast.success('Please enter a search word.', { position: 'top-right' });
          }
+         //setSearchParams({ value: value });
          //setSearchParams({ value });
         // setValue(evt.target.value);
         // handelSearch(value);
