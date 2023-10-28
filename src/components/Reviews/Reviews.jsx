@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorMessage } from 'components/ErrorMessage';
 import { fetchReviews } from 'services/api';
+import{Message} from './Reviews.styled'
 
 
 export default function Reviews() {
@@ -34,7 +35,7 @@ export default function Reviews() {
       }
         };
         getReviews()
-    }, [params.movieId, params.reviews]);
+    }, [params.movieId]);
 
 
 
@@ -43,7 +44,8 @@ export default function Reviews() {
             {loading && <Loader />}
          {error && (
           <ErrorMessage>Whoops! Error! Please reload this page!</ErrorMessage>
-        )} 
+            )} 
+            {reviews.length !== 0 ? 
             <ul>
               {reviews.map(elem => (
                     <li key={elem.id}>
@@ -54,6 +56,8 @@ export default function Reviews() {
                 ))}
                 
             </ul>
+            : <Message>We don't have any reviews for this movie.</Message>}
+            
         
         </div >)
 }

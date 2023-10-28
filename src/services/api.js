@@ -24,9 +24,10 @@ export const fetchWord = async (value)=> {
     params: {
       api_key: API_KEY,
       language: 'en-US',
-      query:'value'
+      query:`${value}`
     }
   });
+  console.log('VALUE', data.results)
   return data.results;
 
 }

@@ -1,23 +1,26 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import { SearchMovies } from 'components/SearchMovies/SearchMovies';
-import toast from 'react-hot-toast';
+//import toast from 'react-hot-toast';
 import { fetchWord } from '../services/api';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorMessage } from 'components/ErrorMessage';
 import { ListMovies } from 'components/ListMovies/ListMovies';
 
 export default function Movies() {
-    const [value, setValue] = useState('');
+    const [params, setParams] = useSearchParams();
+    const value = params.get('value') ?? '';
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
-     useEffect(() => {
+   useEffect(() => {
         if (value === '') {
-      return;
+            return;
+            
     }
-        async function searchWord(value) {
+        async function searchWord() {
              setLoading(true);
              setError(false);
            
@@ -39,27 +42,17 @@ export default function Movies() {
         searchWord();
     }, [value]);
 
-    const handlerChange = evt => {
-        setValue(evt.target.value);
-    }
-
-     const handlerSubmit = value => {
+    
+ const handleSubmit = e => {
+    e.preventDefault();
+        const form = e.currentTarget;
         
-        if (value.trim() === '') {
-            return toast.success('Please enter a search word.', { position: 'top-right' });
-         }
-         //setSearchParams({ value: value });
-         //setSearchParams({ value });
-        // setValue(evt.target.value);
-        // handelSearch(value);
-         
-        reset();
+        setParams({ value: form.elements.value.value });
+    
+    form.reset();
     };
     
-  const  reset = () => {
-         setValue('');
-    }
-    
+      
     
     return (<div>
          {loading && <Loader />}
@@ -67,9 +60,10 @@ export default function Movies() {
           <ErrorMessage>Whoops! Error! Please reload this page!</ErrorMessage>
         )} 
         <SearchMovies
-            onSubmit={handlerSubmit}
+            onSubmit={handleSubmit}
             value={value}
-             onChange={handlerChange} />
+            
+         />
          <ListMovies movies={movies} /> 
         
     </div>)

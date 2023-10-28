@@ -4,8 +4,8 @@ import HomePage from '../pages/Home/HomePage';
 import Movies from '../pages/Movies';
 import MovieDetails from '../pages/MovieDetails';
 import NotFoundPage from 'pages/NotFoundPage';
-import Cast from 'components/Cast';
-import Reviews from 'components/Reviews';
+import Cast from 'components/Cast/Cast';
+import Reviews from 'components/Reviews/Reviews';
 
 export const App = () => {
   return (
