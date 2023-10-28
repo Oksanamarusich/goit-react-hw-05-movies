@@ -1,19 +1,27 @@
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import {
     ContainerCard,
     Poster,
     PosterContainer,
     TitleMovie,
-Title} from 'components/CardMovie/CardMovie.styled'
+    Title,
+    Span,
+    ContainerInfo,
+    LinkCast,
+    LinkPreviews,
+    Cast
+} from 'components/CardMovie/CardMovie.styled'
 
 export const CardMovie = ({movie, cast, reviews}) => {
-//    const defaultImg = 'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700'
+const defaultImg = 'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700'
  return (
         <>
             {movie && (
              <><ContainerCard>
                  <PosterContainer>
-                     < Poster src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width={500} alt={movie.title}/>
+                     < Poster src={movie.poster_path
+                         ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                         : defaultImg} width={500} alt={movie.title} />
                  </PosterContainer>
                  
                  <div>
@@ -26,17 +34,20 @@ export const CardMovie = ({movie, cast, reviews}) => {
                 </div>
              </ContainerCard>
                  
-                
-            <h2>Additional information</h2>
+                 <ContainerInfo>
+                 <Span>Additional information</Span>
             <ul>
-                <li>
-                         <Link to="cast">Cast</Link>
-                </li>
+                <Cast>
+                         <LinkCast to="cast">Cast</LinkCast>
+                </Cast>
                     
                 <li>
-                         <Link to="reviews">Reviews</Link>
+                         <LinkPreviews  to="reviews">Reviews</LinkPreviews>
                 </li>
-            </ul></>
+                     </ul>
+                 </ContainerInfo>   
+            
+             </>
         )}  
         </>
     )

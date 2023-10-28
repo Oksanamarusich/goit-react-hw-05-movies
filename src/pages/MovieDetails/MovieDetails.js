@@ -1,4 +1,4 @@
-import { useParams, Link,  Outlet, useLocation } from 'react-router-dom';
+import { useParams, Outlet, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import { fetchMovie } from 'services/api';
@@ -7,10 +7,10 @@ import { Loader } from 'components/Loader/Loader';
 import { ErrorMessage } from 'components/ErrorMessage';
 import { BsArrowLeft } from "react-icons/bs";
 
+import {LinkBack} from "pages/MovieDetails/MovieDetails.styled"
+
 export default function MovieDetails() {
     const params = useParams();
-    // console.log('params', params)
-
     const [movie, setMovie] = useState();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
@@ -26,7 +26,7 @@ export default function MovieDetails() {
              setError(false);
             try {
                 const movie = await fetchMovie(params.movieId);
-                console.log('MOVIE', movie)
+                
                 setMovie(movie);
             } catch (error) {
         
@@ -40,10 +40,10 @@ export default function MovieDetails() {
         getMovie();
     }, [params.movieId]);
 
-    console.log('LOCATION', location)
+    
     return (
         <div>
-            <Link to={location.state?.from ?? '/'} ><BsArrowLeft/>  Go back</Link>
+            <LinkBack to={location.state?.from ?? '/'} ><BsArrowLeft /> Go back</LinkBack>
              {loading && <Loader />}
          {error && (
           <ErrorMessage>Whoops! Error! Please reload this page!</ErrorMessage>
