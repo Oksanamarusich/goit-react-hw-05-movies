@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { SearchMovies } from 'components/SearchMovies/SearchMovies';
-//import toast from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { fetchWord } from '../services/api';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorMessage } from 'components/ErrorMessage';
 import { ListMovies } from 'components/ListMovies/ListMovies';
+
 
 export default function Movies() {
     const [params, setParams] = useSearchParams();
@@ -17,17 +18,22 @@ export default function Movies() {
 
    useEffect(() => {
         if (value === '') {
+          
             return;
-            
     }
         async function searchWord() {
              setLoading(true);
              setError(false);
            
             try {
+
                 const movies = await fetchWord(value);
                 console.log('movies', movies)
                 setMovies(movies);
+                
+                 if (movies.length === 0) {
+                     return toast.success('Sorry, no movies found.');
+                };
                 
            
             } catch (error) {
@@ -45,14 +51,15 @@ export default function Movies() {
     
  const handleSubmit = e => {
     e.preventDefault();
-        const form = e.currentTarget;
-        
+     const form = e.currentTarget;
+     console.log('TARGET', form.elements.value )
         setParams({ value: form.elements.value.value });
-    
-    form.reset();
+        if (form.elements.value.value === '') {
+            return toast.success('Please, enter a word to search for. ');
+     }
+     
     };
     
-      
     
     return (<div>
          {loading && <Loader />}

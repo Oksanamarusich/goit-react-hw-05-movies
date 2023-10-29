@@ -10,6 +10,8 @@ export const LinkBack = styled(Link)`
 font-size: 20px;
   text-decoration: none;
   color: ${props => props.theme.colors.black};
-  padding: 40px;
+  padding: 40px 40px 0 40px;
+  display: block;
+
 
 `;

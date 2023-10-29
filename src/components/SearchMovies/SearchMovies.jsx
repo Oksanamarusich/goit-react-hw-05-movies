@@ -7,7 +7,7 @@ export const SearchMovies = ({value,  onSubmit}) => {
         <form onSubmit = {onSubmit}>
             <SearchInput type="text"
                 name="value"
-                defaultValue={value}
+                
              
              />
         <Button type = "submit" >Search</Button>

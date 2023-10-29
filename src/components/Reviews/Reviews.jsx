@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorMessage } from 'components/ErrorMessage';
 import { fetchReviews } from 'services/api';
-import{Message} from './Reviews.styled'
+import{Message, List} from './Reviews.styled'
 
 
 export default function Reviews() {
@@ -22,9 +22,9 @@ export default function Reviews() {
             setLoading(true);
              setError(false);
             try {
-                const reviews = await fetchReviews(params.movieId,params.reviews);
-                console.log('Reviews', reviews);
+                const reviews = await fetchReviews(params.movieId, params.reviews);
                 setReviews(reviews);
+           
             } catch (error) {
         
                  setError(true);
@@ -34,8 +34,8 @@ export default function Reviews() {
                  setLoading(false);
       }
         };
-        getReviews()
-    }, [params.movieId]);
+         getReviews();
+    }, [params.movieId, params.reviews]);
 
 
 
@@ -43,10 +43,10 @@ export default function Reviews() {
         <div>
             {loading && <Loader />}
          {error && (
-          <ErrorMessage>Whoops! Error! Please reload this page!</ErrorMessage>
-            )} 
+          <ErrorMessage>Whoops! Error! Please reload this page!</ErrorMessage>)} 
+           
             {reviews.length !== 0 ? 
-            <ul>
+            <List>
               {reviews.map(elem => (
                     <li key={elem.id}>
                         <h3>{elem.author}</h3>
@@ -55,7 +55,7 @@ export default function Reviews() {
                     </li>
                 ))}
                 
-            </ul>
+            </List>
             : <Message>We don't have any reviews for this movie.</Message>}
             
         

@@ -1,5 +1,5 @@
 import { useParams, Outlet, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import { fetchMovie } from 'services/api';
 import { CardMovie } from 'components/CardMovie/CardMovie.jsx';
@@ -15,7 +15,8 @@ export default function MovieDetails() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const location = useLocation();
-
+    const backLinkLocationRef = useRef(location.state?.from ?? '/');
+    console.log('REF', backLinkLocationRef )
     useEffect(() => {
         if (!params.movieId) {
             return;
@@ -43,7 +44,7 @@ export default function MovieDetails() {
     
     return (
         <div>
-            <LinkBack to={location.state?.from ?? '/'} ><BsArrowLeft /> Go back</LinkBack>
+            <LinkBack to={backLinkLocationRef.current} ><BsArrowLeft /> Go back</LinkBack>
              {loading && <Loader />}
          {error && (
           <ErrorMessage>Whoops! Error! Please reload this page!</ErrorMessage>

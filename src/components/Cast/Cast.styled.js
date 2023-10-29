@@ -4,7 +4,6 @@ export const Container = styled.ul`
 display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  margin: 40px;
 `;
 
 export const Card = styled.li`

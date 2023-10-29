@@ -9,7 +9,7 @@ import {
     ContainerInfo,
     LinkCast,
     LinkPreviews,
-    Cast
+    List
 } from 'components/CardMovie/CardMovie.styled'
 
 export const CardMovie = ({movie, cast, reviews}) => {
@@ -36,15 +36,15 @@ const defaultImg = 'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/i
                  
                  <ContainerInfo>
                  <Span>Additional information</Span>
-            <ul>
-                <Cast>
+            <List>
+                <li>
                          <LinkCast to="cast">Cast</LinkCast>
-                </Cast>
+                </li>
                     
                 <li>
                          <LinkPreviews  to="reviews">Reviews</LinkPreviews>
                 </li>
-                     </ul>
+                     </List>
                  </ContainerInfo>   
             
              </>
