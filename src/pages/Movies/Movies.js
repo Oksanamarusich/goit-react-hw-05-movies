@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 
 import { SearchMovies } from 'components/SearchMovies/SearchMovies';
 import toast from 'react-hot-toast';
-import { fetchWord } from '../services/api';
+import { fetchWord } from '../../services/api';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorMessage } from 'components/ErrorMessage';
 import { ListMovies } from 'components/ListMovies/ListMovies';
@@ -28,7 +28,7 @@ export default function Movies() {
             try {
 
                 const movies = await fetchWord(value);
-                console.log('movies', movies)
+            
                 setMovies(movies);
                 
                  if (movies.length === 0) {
@@ -52,7 +52,7 @@ export default function Movies() {
  const handleSubmit = e => {
     e.preventDefault();
      const form = e.currentTarget;
-     console.log('TARGET', form.elements.value )
+    
         setParams({ value: form.elements.value.value });
         if (form.elements.value.value === '') {
             return toast.success('Please, enter a word to search for. ');

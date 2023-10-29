@@ -3,7 +3,7 @@ import { Item, LinkItem } from 'components/ListMovies/ListMovies.styled';
 
 export const ListMovies = ({ movies }) => {
     const location = useLocation();
-    console.log('LISTLOCATION', location)
+    
     return (
         <div>
            

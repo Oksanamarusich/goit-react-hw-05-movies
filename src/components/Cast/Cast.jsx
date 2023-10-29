@@ -24,7 +24,7 @@ export default function Cast() {
              setError(false);
             try {
                 const cast = await fetchCast(params.movieId, params.cast);
-                console.log('Cast', cast);
+                
                 setCast(cast);
             } catch (error) {
         
@@ -48,15 +48,14 @@ export default function Cast() {
             <Container>
                 {cast.map(elem => (
                     <Card key={elem.id}>
-                            
-                            <img src={`https://image.tmdb.org/t/p/w500${elem.profile_path}`|| defaultImg} width={300} height={100} alt={elem.name} />
+                            <img src={elem.profile_path
+                            ? `https://image.tmdb.org/t/p/w500${elem.profile_path}`
+                            : defaultImg} width={300} height={100} alt={elem.name} />
                             <Title>{elem.name}</Title>
                             <Text>Character: {elem.character}</Text>
                         
-                        
-
-                    </Card>
-                ))}
+                         </Card>
+                ))};
                 
         </Container>
                

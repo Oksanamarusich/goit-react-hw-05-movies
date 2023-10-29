@@ -14,28 +14,26 @@ export const  fetchTrending = async () => {
   });
   
   return data.results;
-  
 };
  
-// пошук за ключовим словом
+// пошук за  словом
 
-export const fetchWord = async (value)=> {
+export const fetchWord = async (value) => {
   const { data } = await axios.get('search/movie', {
     params: {
       api_key: API_KEY,
       language: 'en-US',
-      query:`${value}`
+      query: `${value}`
     }
   });
-  console.log('VALUE', data.results)
+  
   return data.results;
+};
 
-}
 
+//card movie
 
-//information about film
-
-  export const fetchMovie = async (movieId)=> {
+export const fetchMovie = async (movieId) => {
   const { data } = await axios.get(`movie/${movieId}`, {
     params: {
       api_key: API_KEY,
@@ -45,12 +43,11 @@ export const fetchWord = async (value)=> {
   });
   
   return data;
-
-}
+};
 
   // cast
 
-export const fetchCast = async (movieId)=> {
+export const fetchCast = async (movieId) => {
   const { data } = await axios.get(`movie/${movieId}/credits`, {
     params: {
       api_key: API_KEY,
@@ -58,14 +55,13 @@ export const fetchCast = async (movieId)=> {
      
     }
   });
-  console.log('fetchCast', data.cast);
+  
   return data.cast;
-
-}
+};
 
   // Reviews
 
-export const fetchReviews = async (movieId)=> {
+export const fetchReviews = async (movieId) => {
   const { data } = await axios.get(`movie/${movieId}/reviews`, {
     params: {
       api_key: API_KEY,
@@ -73,7 +69,6 @@ export const fetchReviews = async (movieId)=> {
      
     }
   });
-  console.log('fetchReviews', data.results);
+  
   return data.results;
-
-}
+};

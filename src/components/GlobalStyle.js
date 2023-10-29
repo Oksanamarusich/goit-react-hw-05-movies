@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: ${props => props.theme.colors.white};
-  //background: linear-gradient(90deg, hsla(213, 77%, 14%, 1) 0%, hsla(202, 27%, 45%, 1) 50%, hsla(213, 77%, 14%, 1) 100%);
+  
   }
 
   code {

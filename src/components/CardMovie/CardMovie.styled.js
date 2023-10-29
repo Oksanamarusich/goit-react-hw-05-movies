@@ -29,15 +29,14 @@ export const LinkCast = styled(Link)`
 &:hover{
     color: ${props => props.theme.colors.orange};
     text-decoration:underline;
-   margin-bottom: 40px;
+   
 }
-
 font-size: 20px;
   text-decoration: none;
   color: ${props => props.theme.colors.black};
   display: block;
   padding: 10px 0;
-
+margin-bottom: 20px;
 `;
 
 export const Span = styled.span`
@@ -63,9 +62,7 @@ font-size: 20px;
   color: ${props => props.theme.colors.black};
   display: block;
   padding: 10px 0;
-  margin-bottom: 40px;
-
-
+  margin-bottom: 20px;
 `;
 
 export const List = styled.ul`

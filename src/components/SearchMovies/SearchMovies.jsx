@@ -7,9 +7,7 @@ export const SearchMovies = ({value,  onSubmit}) => {
         <form onSubmit = {onSubmit}>
             <SearchInput type="text"
                 name="value"
-                
-             
-             />
+                />
         <Button type = "submit" >Search</Button>
      </form>
        

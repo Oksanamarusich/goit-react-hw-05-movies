@@ -6,7 +6,6 @@ import { CardMovie } from 'components/CardMovie/CardMovie.jsx';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorMessage } from 'components/ErrorMessage';
 import { BsArrowLeft } from "react-icons/bs";
-
 import {LinkBack} from "pages/MovieDetails/MovieDetails.styled"
 
 export default function MovieDetails() {
@@ -16,7 +15,7 @@ export default function MovieDetails() {
     const [error, setError] = useState(false);
     const location = useLocation();
     const backLinkLocationRef = useRef(location.state?.from ?? '/');
-    console.log('REF', backLinkLocationRef )
+    
     useEffect(() => {
         if (!params.movieId) {
             return;
